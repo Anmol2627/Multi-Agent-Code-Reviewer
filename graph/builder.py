@@ -5,7 +5,7 @@
 # in PARALLEL → synthesizer → END
 # ─────────────────────────────────────────────────────────
 
-from langgraph.graph import StateGraph, END
+from langgraph.graph import StateGraph, END, START
 from graph.state import ReviewState
 from agents.orchestrator import orchestrator_node
 from agents.security_agent import security_node
@@ -25,7 +25,7 @@ def build_graph() -> StateGraph:
     graph.add_node("synthesizer",  synthesizer_node)
 
     # ── Entry point ────────────────────────────────────────
-    graph.set_entry_point("orchestrator")
+    graph.add_edge(START, "orchestrator")
 
     # ── Fan-out: orchestrator → all three agents in parallel ─
     # LangGraph executes these concurrently when possible

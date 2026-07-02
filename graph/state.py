@@ -6,7 +6,7 @@
 # ─────────────────────────────────────────────────────────
 
 from typing import TypedDict, Annotated
-from langgraph.graph.message import add_messages
+from langgraph.graph import add_messages
 
 
 class Finding(TypedDict):
@@ -37,7 +37,8 @@ class ReviewState(TypedDict):
     messages: Annotated[list, add_messages]
 
     # ── Metadata ───────────────────────────────────────────
-    error: str                          # populated if any agent fails
+    # Allow multiple agents to append error messages concurrently.
+    error: Annotated[list[str], add_messages]
 
 
 # ── IMPROVEMENT IDEAS ──────────────────────────────────────
