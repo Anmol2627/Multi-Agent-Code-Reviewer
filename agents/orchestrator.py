@@ -67,7 +67,7 @@ def orchestrator_node(state: ReviewState) -> dict:
             "security_findings":    [],
             "performance_findings": [],
             "style_findings":       [],
-            "error": f"Orchestrator error: {str(e)}"
+            "error": [f"Orchestrator error: {str(e)}"]
         }
 
 

@@ -79,7 +79,7 @@ def style_node(state: ReviewState) -> dict:
     except Exception as e:
         return {
             "style_findings": [],
-            "error": f"Style agent error: {str(e)}"
+            "error": [f"Style agent error: {str(e)}"]
         }
 
 

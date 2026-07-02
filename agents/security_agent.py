@@ -74,7 +74,7 @@ def security_node(state: ReviewState) -> dict:
     except Exception as e:
         return {
             "security_findings": [],
-            "error": f"Security agent error: {str(e)}"
+            "error": [f"Security agent error: {str(e)}"]
         }
 
 

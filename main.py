@@ -7,6 +7,13 @@
 
 import sys
 import json
+from dotenv import load_dotenv
+
+# Load environment variables from .env early so modules that create
+# LLM clients at import time (e.g. agents/orchestrator.py) have access
+# to `OPENAI_API_KEY` and other secrets.
+load_dotenv()
+
 from graph.builder import build_graph
 
 

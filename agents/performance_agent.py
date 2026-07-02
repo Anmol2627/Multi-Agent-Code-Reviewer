@@ -74,7 +74,7 @@ def performance_node(state: ReviewState) -> dict:
     except Exception as e:
         return {
             "performance_findings": [],
-            "error": f"Performance agent error: {str(e)}"
+            "error": [f"Performance agent error: {str(e)}"]
         }
 
 
